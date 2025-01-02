@@ -13,7 +13,9 @@ class AuthService {
     final url = Uri.parse(
       'https://login.microsoftonline.com/$_tenantId/oauth2/v2.0/token',
     );
-
+    if (_clientId.isEmpty) {
+      print("===========PLEASE CHECK THE SECRETS FILE==============");
+    }
     final response = await http.post(
       url,
       headers: {
